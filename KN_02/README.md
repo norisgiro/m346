@@ -30,3 +30,28 @@
   ![HTML](/KN_02/StaticHosts.png)
 
 ---
+
+**B)**
+
+- ssh-Befehl erster Key
+  ![erster key](/KN_02/funktioniert.png)
+
+- ssh-Befehl zweiter Key
+  ![zweiter key](/KN_02/denied.png)
+
+- Instanze Deteils
+  ![Instanze](/KN_02/Instance.png)
+
+
+---
+
+**C)**
+
+- Index.html Webseite
+  ![html](/KN_02/index_html.png)
+
+- info.php Webseite
+  ![info](/KN_02/php.png)
+
+- db.php Webseite
+  ![db](/KN_02/db.png)
