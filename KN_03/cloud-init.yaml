@@ -1,15 +1,15 @@
 #cloud-config
-users:  # Benutzerkonfiguration
-  - name: ubuntu  # Benutzername ist "ubuntu"
-    sudo: ALL=(ALL) NOPASSWD:ALL  # sudo-Regeln für diesen Benutzer
-    groups: users, admin  # Der Benutzer gehört zu den Gruppen "users" und "admin"
-    home: /home/ubuntu  # Das Heimatverzeichnis des Benutzers ist "/home/ubuntu"
-    shell: /bin/bash  # Der Benutzer verwendet die Bash-Shell
-    ssh_authorized_keys:  # Autorisierte SSH-Schlüssel
-      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC0WGP1EZykEtv5YGC9nMiPFW3U3DmZNzKFO5nEu6uozEHh4jLZzPNHSrfFTuQ2GnRDSt+XbOtTLdcj26+iPNiFoFha42aCIzYjt6V8Z+SQ9pzF4jPPzxwXfDdkEWylgoNnZ+4MG1lNFqa8aO7F62tX0Yj5khjC0Bs7Mb2cHLx1XZaxJV6qSaulDuBbLYe8QUZXkMc7wmob3PM0kflfolR3LE7LResIHWa4j4FL6r5cQmFlDU2BDPpKMFMGUfRSFiUtaWBNXFOWHQBC2+uKmuMPYP4vJC9sBgqMvPN/X2KyemqdMvdKXnCfrzadHuSSJYEzD64Cve5Zl9yVvY4AqyBD aws-key
-ssh_pwauth: false  # SSH-Passwortauthentifizierung ist deaktiviert
-disable_root: false  # Das Anmelden als Root-Benutzer ist aktiviert
-package_update: true  # Die Paketliste wird beim Starten der Instanz aktualisiert
-packages:  # Installierte Pakete
-  - curl  # Installiert das Paket "curl"
-  - wget  # Installiert das Paket "wget"
+users: # Benutzerkonfiguration
+  - name: ubuntu # Benutzername ist "ubuntu"
+    sudo: ALL=(ALL) NOPASSWD:ALL # sudo-Regeln für diesen Benutzer
+    groups: users, admin # Der Benutzer gehört zu den Gruppen "users" und "admin"
+    home: /home/ubuntu # Das Heimatverzeichnis des Benutzers ist "/home/ubuntu"
+    shell: /bin/bash # Der Benutzer verwendet die Bash-Shell
+    ssh_authorized_keys: # Autorisierte SSH-Schlüssel
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCb2pO/WZ7yHpLBCc5M9qx1bc/lTV+JjzqA0TO+Aq3IcX4HvE5y6TWh/RaxGMcVzmfSpQ2PrJn97EQ0AdMU5TmHj8SAUhvmie3vzK3y8TS0vcZGdLTemv7jn5HHhUmYQlR2QAWG/nSrzdlgPj/zBtSHrvNudNFqQ3PEYiq6IUMT45+XIgOZb2hXFbxXzg/W4xwpEpP58YT/2Pbhh2dOSnNxZZQ/hEZS3GmNlNQzIM8iF8qc1pPGiN+bRbo5DjGUu+VBmwCHvLM/iANfxtBVZelIDcsgxL1w4dIxmegSlcmG+idNdYOkRKyWf/tEBXH01kzv2PJ1lP28z5fqgdROFzG9 aws-key
+ssh_pwauth: false # SSH-Passwortauthentifizierung ist deaktiviert
+disable_root: false # Das Anmelden als Root-Benutzer ist aktiviert
+package_update: true # Die Paketliste wird beim Starten der Instanz aktualisiert
+packages: # Installierte Pakete
+  - curl # Installiert das Paket "curl"
+  - wget # Installiert das Paket "wget"

@@ -23,3 +23,16 @@ packages:  # Installierte Pakete
 
 **B)**
 
+- Ein Screenshot der Details oder Liste der Instanz, welcher den verwendeten Key zeigt.
+   ![Instanze](/KN_03/instanze.png)
+
+- Screenshot mit dem ssh-Befehl und des Resultats unter Verwendung des ersten Schlüssels.
+![ersterKey](/KN_03/ersterKey.png)
+
+- Screenshot mit dem ssh-Befehl und des Resultats unter Verwendung des zweiten Schlüssels.
+  ![zweiterkey](/KN_03/zweiterKey.png)
+
+- Screenshot mit dem Auszug aus dem Cloud-Init-Log.
+  ![cloud](/KN_03/cloud-init-outlook.png)
+
+  
