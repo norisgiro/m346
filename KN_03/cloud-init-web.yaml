@@ -46,7 +46,6 @@ write_files:
   - path: /var/www/html/info.php
 
     content: |
-
       <?php
 
       // Show all information, defaults to INFO_ALL
