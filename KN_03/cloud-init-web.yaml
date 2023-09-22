@@ -10,32 +10,32 @@ users:
       - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCz/wpWmsCxaQyuNFrIachc/q9nUdByoUcBcicl/wnKLFktKp6du9np9Uhmo4M0tVHNnWCt5uNEi2ks/0XEbg2J+4heuAAKEDr/TVbgabiWGclYKpEWZvmw8gsQwfpAKVG4aS2re7wB2uhw82ZqzJVpGm3ne+sNnz5uVrxN8HUnuR2OWJD6bA9l/fBmE6zdObVXgrCJGjZmVyB5GMeTDJKExgoBpLggZn9CNdu7Sx989xtNLehu6SWM+mGCq9Lcu7usiPG+SuEb8XynYaCOnv8+Oko6SYeJ9Omq/E7Eg6vZHqCbBQ81TIZrGKcikLmF2xP7EOprGOSPVewke7ak7vvmOI+p/RfIAyXj1+GYny+esk9G+qDRFXP9uiIlMfH1oGkQkztvSDMH+EOHqgY66NWQJPj83CaWH/euR0MROHXjm1ar3RuN9qcASAnzCOQQ1FMwFkpIV5x0NDRx0Zp1rLt8ZUFykmIuHZI4g9u6RdAiuWUxx9/eF0fXZa6Ju7GEMKeMtZxJJjmB/WCOylbkT+NPw5RcxgyRLKmUAicnYKXBmULY3pQM/Ui8KiCyJqRbLDBAR+XZYsZ7X5uhcuteu8KIfA2xEbInB4Q3c0DnnSih+GEC4pEbz+NOfeCpLJEn4gfyV1S9S08sG62ls8NPFociA9aWmE1oXfcqwvOkkYhxOw== aws-key
       - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCb2pO/WZ7yHpLBCc5M9qx1bc/lTV+JjzqA0TO+Aq3IcX4HvE5y6TWh/RaxGMcVzmfSpQ2PrJn97EQ0AdMU5TmHj8SAUhvmie3vzK3y8TS0vcZGdLTemv7jn5HHhUmYQlR2QAWG/nSrzdlgPj/zBtSHrvNudNFqQ3PEYiq6IUMT45+XIgOZb2hXFbxXzg/W4xwpEpP58YT/2Pbhh2dOSnNxZZQ/hEZS3GmNlNQzIM8iF8qc1pPGiN+bRbo5DjGUu+VBmwCHvLM/iANfxtBVZelIDcsgxL1w4dIxmegSlcmG+idNdYOkRKyWf/tEBXH01kzv2PJ1lP28z5fqgdROFzG9 aws-key
 ssh_pwauth: false
+
 disable_root: false
+
 package_update: true
+
 packages:
   - apache2
   - php
   - libapache2-mod-php
-
-runcmd:
-  - sudo systemctl restart apache2
+  - php-mysqli
+  - adminer
 
 write_files:
   - path: /var/www/html/db.php
+
     content: |
       <?php
-      // Database
-      $servername = "127.0.0.1";
+      $servername = "54.83.161.186";
       $username = "admin";
       $password = "password";
       $dbname = "mysql";
-      // Create connection
       $conn = new mysqli($servername, $username, $password, $dbname);
-      // Check connection
       if ($conn->connect_error) {
+
           die("Connection failed: " . $conn->connect_error);
       }
-
       $sql = "select Host, User from mysql.user;";
       $result = $conn->query($sql);
       while ($row = $result->fetch_assoc()) {
@@ -47,9 +47,9 @@ write_files:
 
     content: |
       <?php
-
-      // Show all information, defaults to INFO_ALL
-
       phpinfo();
-
       ?>
+
+runcmd:
+  - sudo a2enconf adminer
+  - sudo systemctl restart apache2

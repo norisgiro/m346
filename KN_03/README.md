@@ -24,15 +24,33 @@ packages:  # Installierte Pakete
 **B)**
 
 - Ein Screenshot der Details oder Liste der Instanz, welcher den verwendeten Key zeigt.
-   ![Instanze](/KN_03/instanze.png)
+   ![Instanze](../KN_03/instanze.png)
 
 - Screenshot mit dem ssh-Befehl und des Resultats unter Verwendung des ersten Schlüssels.
-![ersterKey](/KN_03/ersterKey.png)
+![ersterKey](../KN_03/ersterKey.png)
 
 - Screenshot mit dem ssh-Befehl und des Resultats unter Verwendung des zweiten Schlüssels.
-  ![zweiterkey](/KN_03/zweiterKey.png)
+  ![zweiterkey](../KN_03/zweiterKey.png)
 
 - Screenshot mit dem Auszug aus dem Cloud-Init-Log.
-  ![cloud](/KN_03/cloud-init-outlook.png)
+  ![cloud](../KN_03/cloud-init-outlook.png)
 
+---
+
+**D)**
+
+- Erstellen Sie einen Screenshot, der den Befehl und die CLI von mysql zeigt.
+  ![mariadb](../KN_03/mariadb.png)
+
+-  Erstellen
+Sie einen Screenshot des Befehls und des Resultats. (telenet)
+  ![telnet](../KN_03/dbverbunden.png)
+
+- Screenshot der URL und des Inhalts.
+  ![telnet](../KN_03/info.png)
+  ![db](../KN_03/dbphp.png)
+  ![index](../KN_03/index.png)
+  
+- Screenshot von Adminer
+  ![adminer](../KN_03/adminer.png)
   
