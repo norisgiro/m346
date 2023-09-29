@@ -24,7 +24,7 @@ write_files:
     content: |
       <?php
       $ihrname = "Noris Girolimetto";
-      $bildquelle = "/Pfad/zum/Bilder/ordner/bild.jpg"; // Ändern Sie den Pfad und den Dateinamen entsprechend
+      $bildquelle = ""C:\Users\noris\OneDrive\Bilder\Screenshots\fran.png"";
       ?>
 
       <html>
@@ -34,7 +34,7 @@ write_files:
         <body>
           Das ist der Fran mit mir FaceTime.
           <br />
-          <img src="<?php echo($bildquelle); ?>" alt="Mein Bild" />
+          <img src="https://norisgiro.s3.us-east-1.amazonaws.com/fran.png?response-content-disposition=inline&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBwaDGV1LWNlbnRyYWwtMSJHMEUCIHSN9t%2FLnIi%2FUGZeoZVsJFFiiRooQq2zs4782DIlPkPlAiEA9iHT2HsURIAaja2owcq1fpPHJZgYdpiQy4755HHopw4q%2FQIIFhAAGgw3ODE3NDcwODQ2MDMiDAmMysFZOrAGJdAt4SraAuCVwXzMID7NFse29n12ZZEql639LPYvckaFCnNc%2Fjhhn8NNwuzOAvpFvacxQ2V1t8SUztQBOvfYHwnliiCmnOd%2BmsBC7PolpzjuFeJnToUvNOl3fqIGeY%2BRV8RDyVuXu7106Rg9RfpLvG413Z5yO4E61tnAS3ZPvCbPN%2BFurO%2BFB4B2uIBe3poRU9PxNFxImE4JmxA%2FiZiKaaRmByWsCvr3bhxBk3ztlFww2h9DbBUO%2Fsx6a0U2EDRIUpc2aBRHAoBSKsLz%2Bpui%2BMGA0Z1HNeq5%2BWN%2F0w9Guaw9UUBkKn%2FYMR%2BrVNA7pcfSobBRm%2BZ%2BnAxKCNzGy88uJh7LR%2B5RY5SCdQ3Qntx69bG9FPiBPtvc809Hf%2BSrDM2JvuHt83LxvEwxQ40NCpS6oRo8wsfllVGw%2F2g%2FtE7G7MMDLi7xjeDlhmLdpIl38ZUKVwmcSacrtc1RxZsujIPMqUcw5O61qAY6hwLtF8LHhNC%2FEzmv5IlQEGP2ZKFnTykB5cTuZ3G6KrD4XadGvuh%2FyL4jps5rneJwIwYoB27KckztLLhT%2FSyJl8XlQeomTpYGgiJ1%2FtB%2B6nhgzQbpGOq2vChUiz4b6JHm3crSBHWk5x%2Bs88SaAJpHq0ugQFxKbJZlsjlFf8PM%2FYtmXkicrwgbvoNGhhb4qHQq37w2nCSoXo8%2F7M3Q8kIGS2qbBki1YEGlQhu7nIMY31t3f4FUOnZTgdQ33GBM0oLvl0Z%2BdZnd3cgQA5SJhEx8a3SaUh1qjyrucCMNJ3YYrkjfs5Wznb22viyN6o%2F3DxDk7ln6Nkt65%2FoQfqcMC0EnAqaURjz4gGsx1g%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20230922T131752Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=ASIA3MA6B3U54ZRGEJWX%2F20230922%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=cb681d7b78c31235bcbde829d68d05f230fe92bb068eb7f790ee214a576fc744" />
           <p>Dieses Bild kommt aus meinem "Bilder" Ordner.</p>
         </body>
       </html>
