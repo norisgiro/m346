@@ -1,3 +1,19 @@
+# M346
+---
+## KN_04
+
+**A) Bild erstellen und auf S3 hosten**
+
+   ![Bucket](../KN_04/Bucket.png)
+   ![Bild](../KN_04/Bild.png)
+
+<br>
+
+**B)**
+
+### Neue Cloud-Init-File
+
+```yaml
 #cloud-config
 users:
   - name: ubuntu
@@ -38,3 +54,36 @@ write_files:
           <p>Dieses Bild kommt aus meinem "Bilder" Ordner.</p>
         </body>
       </html>
+
+```
+   ![Instanze](../KN_04/image_php.png)
+
+<br>
+
+**C)**
+   ![Volumes](../KN_04/Volumes.png)
+
+<br>
+
+**D)**
+
+|                          | Typ   | Persistenz |
+| ------------------------ | ----- | ---------- |
+| EBS Root                 | hot   | nein         |
+| EBS Zusätzliches Volumen | hot  | ja         |
+| S3                       | warm  | ja         |
+
+<br>
+
+### EBS Root
+**Begründung:** Das Betriebssystem ist ständig im Einsatz, da es für den reibungslosen Betrieb des Systems erforderlich ist. Es zeigt eine hohe Persistenz, da es gleichzeitig mit einer Instanz gelöscht wird, wenn diese Instanz gelöscht wird.
+
+<br>
+
+### EBS Zusätzliches Volumen
+**Begründung:** Es ist "hot", da es die zusätzlichen Elemente zu EBS root darstellt, was das Betriebssystem ist. Es zeichnet sich durch Persistenz aus, da die Volumen nicht gelöscht werden.
+
+<br>
+
+### S3
+**Begründung:** Die Bezeichnung "warm" trifft zu, da das Bild gelegentlich aufgerufen wird. Es zeigt Persistenz, da das Bild weiterhin existiert, solange es nicht gelöscht wird.
