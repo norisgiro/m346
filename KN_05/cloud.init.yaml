@@ -1,0 +1,59 @@
+#cloud-config
+users: # benutzerkonfiguration für neues system
+  - name: ubuntu # benutzername
+    sudo: ALL=(ALL) NOPASSWD:ALL #unbeschränkter Zugriff
+    groups: users, admin # gruppen zuteilung
+    home: /home/ubuntu # heimatsverzeichnis
+    shell: /bin/bash # standard shell
+    ssh_authorized_keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCU+4Z/KkAWTig66Mwh+u2h9t3QbnNli7w5LPeXKqZFmW7wWwb97nt0wNw/A7UHzi5xkVmrp9Yk7pZf5IDV6mRKOlrcWA4pD4mC0Bwx1FUb4sGT3jRw3M3HBymIRioQM23C5x2/0cSM+c6xR1EAnS8zbvxapInZk2o3+YsPT6O+X45+m9Hepewtc3Fqg0qqxvkUbQueEBkojowFiVdml2Lj1r9Vijt+Ekd+5P7yqITB7UiBPa/fx3OlIdDZwFkvSDuA8wqFkQ0tS6N4mWKMghaaF1UoxzjvX8Ql77A2AnbQL/TBwXUIHiwTOkJ5BpPiIfWfUWwPRDxQuAx9AMeiro8n aws-key # ssh key  
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC0WGP1EZykEtv5YGC9nMiPFW3U3DmZNzKFO5nEu6uozEHh4jLZzPNHSrfFTuQ2GnRDSt+XbOtTLdcj26+iPNiFoFha42aCIzYjt6V8Z+SQ9pzF4jPPzxwXfDdkEWylgoNnZ+4MG1lNFqa8aO7F62tX0Yj5khjC0Bs7Mb2cHLx1XZaxJV6qSaulDuBbLYe8QUZXkMc7wmob3PM0kflfolR3LE7LResIHWa4j4FL6r5cQmFlDU2BDPpKMFMGUfRSFiUtaWBNXFOWHQBC2+uKmuMPYP4vJC9sBgqMvPN/X2KyemqdMvdKXnCfrzadHuSSJYEzD64Cve5Zl9yVvY4AqyBD aws-key
+ssh_pwauth: false # keine pw authentifizierung
+disable_root: false # root benutzer bleibt aktiv
+package_update: true # damit packete immer aktiv sind
+packages: # packete die beim ersten mal installiert werden sollen
+  - curl 
+  - wget
+  - apache2
+  - php
+  - libapache2-mod-php
+  - php-mysqli
+  - adminer
+
+write_files:
+  - path: /var/www/html/db.php
+    content: |
+      <?php
+      //database
+      $servername = "172.31.64.83";
+      $username = "admin";
+      $password = "password";
+      $dbname = "mysql";
+
+      // Create connection
+      $conn = new mysqli($servername, $username, $password, $dbname);
+      // Check connection
+      if ($conn->connect_error) {
+              die("Connection failed: " . $conn->connect_error);
+      }
+
+      $sql = "select Host, User from mysql.user;";
+      $result = $conn->query($sql);
+      while($row = $result->fetch_assoc()){
+              echo($row["Host"] . " / " . $row["User"] . "<br />");
+      }
+      //var_dump($result);
+      ?>
+
+  - path: /var/www/html/info.php
+    content: |
+      <?php
+
+      // Show all information, defaults to INFO_ALL
+      phpinfo();
+
+      ?>
+
+runcmd:
+  - sudo a2enconf adminer
+  - sudo systemctl restart apache2
