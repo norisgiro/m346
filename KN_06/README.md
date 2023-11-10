@@ -43,7 +43,3 @@ swagger
 
 Autoscaling
 ![Alt text](../KN_06/autoscaling.png)
-
-
-
-
